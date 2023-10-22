@@ -11,11 +11,8 @@ from time import sleep
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import (
-    NoSuchElementException,
-    StaleElementReferenceException,
-    WebDriverException,
-)
+from selenium.common.exceptions import (NoSuchElementException, StaleElementReferenceException, WebDriverException,)
+
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -126,7 +123,7 @@ class Twitter_Scraper:
         browser_option.add_argument("--user-agent={}".format(header))
 
         # For Hiding Browser
-        browser_option.add_argument("--headless")
+        # browser_option.add_argument("--headless")
 
         try:
             print("Initializing ChromeDriver...")
@@ -418,6 +415,7 @@ It may be due to the following:
                                     "poster_details"
                                 ],
                             )
+                            tweet.url = self.driver.current_url #/////////////////
 
                             if tweet:
                                 if not tweet.error and tweet.tweet is not None:
@@ -524,3 +522,4 @@ It may be due to the following:
 
     def get_tweets(self):
         return self.data
+

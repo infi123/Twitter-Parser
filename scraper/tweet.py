@@ -1,8 +1,5 @@
 from time import sleep
-from selenium.common.exceptions import (
-    NoSuchElementException,
-    StaleElementReferenceException,
-)
+from selenium.common.exceptions import (NoSuchElementException, StaleElementReferenceException,)
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -18,6 +15,7 @@ class Tweet:
         self.card = card
         self.error = False
         self.tweet = None
+        self.url = None #///////////////////
 
         try:
             self.user = card.find_element(
